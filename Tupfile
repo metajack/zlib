@@ -1,5 +1,4 @@
-CC = gcc
-CFLAGS = -D_LARGEFILE64_SOURCE=1 -DHAVE_STDDEF_H -DHAVE_STDINT_H -DHAVE_SYS_TYPES_H
+include_rules
 
 ZLIB_SRCS = adler32.c compress.c crc32.c deflate.c gzclose.c gzlib.c gzread.c gzwrite.c inflate.c infback.c inftrees.c inffast.c trees.c uncompr.c zutil.c
 
@@ -12,4 +11,4 @@ else
 endif
 
 : foreach $(ZLIB_SRCS) |> $(CC) $(CFLAGS) -o %o -c %f |> %B.o
-: *.o |> ar crs %o %f |> libz.a
+: *.o |> $(AR) crs %o %f |> libz.a

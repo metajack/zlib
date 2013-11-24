@@ -1,0 +1,8 @@
+ifndef CC
+  CC = gcc
+endif
+ifndef AR
+  AR = ar
+endif
+
+CFLAGS = -D_LARGEFILE64_SOURCE=1 -DHAVE_STDDEF_H -DHAVE_STDINT_H -DHAVE_SYS_TYPES_H
